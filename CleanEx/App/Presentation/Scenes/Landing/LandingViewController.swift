@@ -17,31 +17,31 @@ class LandingViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     customize()
-    self.presenter.didLoadView()
+    presenter.didLoadView()
   }
 
   // MARK: PRIVATE METHODS
 
   private func customize() {
-    self.view.backgroundColor = Constants.Colors.primaryLightColor
-    self.loginButton.setTitle(Constants.Strings.Authentication.loginLabel, for: .normal)
-    self.loginButton.layer.cornerRadius = self.loginButton.frame.height / 2
-    self.loginButton.backgroundColor = Constants.Colors.primaryColor
-    self.loginButton.setTitleColor(Constants.Colors.primaryTextColor, for: .normal)
-    self.registerButton.setTitle(Constants.Strings.Authentication.registerLabel, for: .normal)
-    self.registerButton.layer.cornerRadius = self.registerButton.frame.height / 2
-    self.registerButton.backgroundColor = Constants.Colors.primaryColor
-    self.registerButton.setTitleColor(Constants.Colors.primaryTextColor, for: .normal)
+    view.backgroundColor = Constants.Colors.primaryLightColor
+    loginButton.setTitle(Constants.Strings.Authentication.loginLabel, for: .normal)
+    loginButton.layer.cornerRadius = loginButton.frame.height / 2
+    loginButton.backgroundColor = Constants.Colors.primaryColor
+    loginButton.setTitleColor(Constants.Colors.primaryTextColor, for: .normal)
+    registerButton.setTitle(Constants.Strings.Authentication.registerLabel, for: .normal)
+    registerButton.layer.cornerRadius = registerButton.frame.height / 2
+    registerButton.backgroundColor = Constants.Colors.primaryColor
+    registerButton.setTitleColor(Constants.Colors.primaryTextColor, for: .normal)
   }
 
   // MARK: VIEW EVENTS
   
   @IBAction func didTapLoginButton(_ sender: Any) {
-    self.presenter.didTapLoginButton()
+    presenter.didTapLoginButton()
   }
 
   @IBAction func didTapRegisterButton(_ sender: Any) {
-    self.presenter.didTapRegisterButton()
+    presenter.didTapRegisterButton()
   }
 }
 
@@ -50,12 +50,12 @@ extension LandingViewController: LandingView {
   // MARK: LANDING VIEW
 
   func showButtos() {
-    self.loginButton.isHidden = false
-    self.registerButton.isHidden = false
+    loginButton.isHidden = false
+    registerButton.isHidden = false
   }
 
   func hideButtons() {
-    self.loginButton.isHidden = true
-    self.registerButton.isHidden = true
+    loginButton.isHidden = true
+    registerButton.isHidden = true
   }
 }
