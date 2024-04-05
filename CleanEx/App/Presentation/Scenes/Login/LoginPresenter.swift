@@ -30,14 +30,14 @@ class LoginPresenter {
     // MARK: VIEW EVENTS
     
     func didTapSubmitButton(username: String?, password: String?) {
-        self.view.showLoader()
-        self.loginRequest.username = username
-        self.loginRequest.password = password
-        self.loginInput.login(requestModel: self.loginRequest)
+        view.showLoader()
+        loginRequest.username = username
+        loginRequest.password = password
+        loginInput.login(requestModel: self.loginRequest)
     }
     
     func didTapCloseButton() {
-        self.navigator.close(completion: nil)
+        navigator.close(completion: nil)
     }
 }
 
@@ -46,26 +46,26 @@ extension LoginPresenter: LoginOutput {
     // MARK: LOGIN OUTPUT
     
     func success(response: LoginResponse) {
-        self.view.hideLoader()
-        self.navigator.openMainView()
+        view.hideLoader()
+        navigator.openMainView()
     }
     
     func failure(error: LoginError) {
-        self.view.hideLoader()
+        view.hideLoader()
         
         switch error {
         case .emptyEmail:
-            self.view.showError(title: NSLocalizedString("Email Invalid",
+            view.showError(title: NSLocalizedString("Email Invalid",
                                                          comment: "Invalid email error title"),
                                 message: NSLocalizedString("Enter a valid email",
                                                            comment: "Invalid email error message"))
         case .emptyPassword:
-            self.view.showError(title: NSLocalizedString("Password Invalid",
+            view.showError(title: NSLocalizedString("Password Invalid",
                                                          comment: "Invalid pass error title"),
                                 message: NSLocalizedString("Enter a valid password",
                                                            comment: "Invalid pass error message"))
         default:
-            self.view.showError(title: NSLocalizedString("Error starting session",
+            view.showError(title: NSLocalizedString("Error starting session",
                                                          comment: "Generic login error title"),
                                 message: NSLocalizedString("An error occurred while starting the session",
                                                            comment: "Generic login error message"))
