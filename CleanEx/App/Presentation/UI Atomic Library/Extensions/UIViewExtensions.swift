@@ -1,5 +1,5 @@
 import Foundation
-import UIKit
+import UIKit.UIView
 
 extension UIView {
   func addAutorisizingSubview (view: UIView, with inset: UIEdgeInsets? = nil) {
